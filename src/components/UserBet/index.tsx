@@ -10,7 +10,7 @@ import { numberWithCommas } from "@/utils/formatNumber";
 import { isEmpty, orderBy } from "lodash";
 import dynamic from "next/dynamic";
 import clsx from "clsx";
-import { getPrice } from "@/utils/makeCoins";
+import { getCoinInfo, getPrice } from "@/utils/makeCoins";
 import BadIconPNG from "@/assets/icons/common/BadIcon.png";
 
 const Lottie = dynamic(() => import("../Common/Lottie"), {
@@ -112,9 +112,9 @@ const UserBet = () => {
                   )}
                   {v.status !== "PENDING" && (
                     <>
-                      <p className={styles.expiredStatus}>
+                      <div className={styles.expiredStatus}>
                         <div>{v.status === "WON" ? "Winner" : "Loser"}</div>
-                      </p>
+                      </div>
                       {v.status === "WON" ? (
                         <Lottie
                           lottieData={TrophyLottie}
@@ -138,7 +138,10 @@ const UserBet = () => {
                   </div>
                   <div className={styles.betList}>
                     Bet Amount
-                    <div>{numberWithCommas(Number(v.amount) / 10 ** 18)}</div>
+                    <div>
+                      {numberWithCommas(Number(v.amount) / 10 ** 18)}{" "}
+                      {getCoinInfo(v.token).denom}
+                    </div>
                   </div>
                   <div className={styles.priceWrapper}>
                     <div className={styles.priceContainer}>

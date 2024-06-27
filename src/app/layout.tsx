@@ -15,6 +15,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <title>BetMeme</title>
+        <meta
+          name="description"
+          content="Bet with meme coins in the base ecosystem!"
+        />
+        <link rel="icon" href="/favicon.ico" />
+      </head>
       <body>
         <RecoilRoot>
           <QueryClientProvider client={queryClient}>
