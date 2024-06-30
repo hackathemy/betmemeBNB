@@ -10,7 +10,7 @@ import { coins } from "@/utils/makeCoins";
 
 const CreateGame = () => {
   // const [coinId, setCoinId] = useState('');
-  const [markedPrice, setMarkedPrice] = useState("");
+  const [markedPrice, setMarkedPrice] = useState("1.1");
   const [duration, setDuration] = useState("");
   const [minAmount, setMinAmount] = useState("");
   const [tokenAddress, setTokenAddress] = useState("");
@@ -87,13 +87,6 @@ const CreateGame = () => {
             </Select>
           </div>
           <InputBox
-            title="Marked Price"
-            placeholder="Marked Price"
-            value={markedPrice}
-            onChange={(val) => setMarkedPrice(val.target.value)}
-            required={true}
-          />
-          <InputBox
             title="Duration"
             placeholder="Duration"
             value={duration}
@@ -107,13 +100,6 @@ const CreateGame = () => {
             onChange={(val) => setMinAmount(val.target.value)}
             required={true}
           />
-          {/* <InputBox
-            title="Token Address"
-            placeholder="Token Address"
-            value={tokenAddress}
-            onChange={(val) => setTokenAddress(val.target.value)}
-            required={true}
-          /> */}
           <Button name="Create Game" onClick={createGame} />
         </div>
       )}
