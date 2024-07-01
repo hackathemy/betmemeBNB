@@ -9,8 +9,6 @@ import { Option, Select } from "@mui/joy";
 import { coins } from "@/utils/makeCoins";
 
 const CreateGame = () => {
-  // const [coinId, setCoinId] = useState('');
-  const [markedPrice, setMarkedPrice] = useState("1.1");
   const [duration, setDuration] = useState("");
   const [minAmount, setMinAmount] = useState("");
   const [tokenAddress, setTokenAddress] = useState("");
@@ -34,7 +32,6 @@ const CreateGame = () => {
       setTxLoading(true);
 
       const tx = await contract.createGame(
-        ethers.parseUnits(markedPrice, "ether"),
         duration,
         ethers.parseUnits(minAmount, "ether"),
         tokenAddress
