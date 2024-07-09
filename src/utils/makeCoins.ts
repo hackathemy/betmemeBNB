@@ -1,5 +1,5 @@
 export const frameLink =
-  "https://5376-119-205-221-93.ngrok-free.app/api/approve/";
+  "https://0495-119-205-221-93.ngrok-free.app/api/approve/";
 
 const decimals = 10;
 
