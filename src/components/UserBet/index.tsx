@@ -46,6 +46,8 @@ const UserBet = () => {
         provider
       );
 
+      
+
       try {
         if (accountAssets.account) {
           const gameList = await contract.getGameList();
