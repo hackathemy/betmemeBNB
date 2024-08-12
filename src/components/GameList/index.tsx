@@ -65,8 +65,24 @@ const GameList = () => {
     fetchGameList();
   }, []);
 
+  const dummyGame: IGameProps = {
+    gameId: BigInt(0),
+    startTime: BigInt(Math.floor(Date.now() / 1000)),
+    duration: BigInt(3600),
+    markedPrice: "0.00",
+    lastPrice: "0.00",
+    minAmount: "0.01",
+    upAmount: "0.00",
+    downAmount: "0.00",
+    prizeAmount: "0.00",
+    isEnded: false,
+    token: "DUMMY",
+    betUsers: [],
+  };
+
   return (
     <ul id="memeList" className={styles.container}>
+      <GameCard key="dummy-game" game={dummyGame} />
       {games.map((game, idx) => {
         return <GameCard key={`${String(game.gameId)}-${idx}`} game={game} />;
       })}

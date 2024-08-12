@@ -25,14 +25,8 @@ export default function Home() {
             className={clsx(styles.btnHover, styles.color8)}
             onClick={() => router.push("/#memeList")}
           >
-            Let's Bet!
+            Let's Bet!  
           </button>
-          <div className={styles.imgContainer}>
-            <img src={Bet1JPEG.src} />
-            <img src={Bet2JPEG.src} />
-            <img src={Bet3JPEG.src} />
-            <img src={Bet4JPEG.src} />
-          </div>
         </div>
         <GameList />
       </div>
