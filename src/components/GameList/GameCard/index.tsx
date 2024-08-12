@@ -1,5 +1,8 @@
+'use client';
+
 import Button from "@/components/Common/Button";
 import { useMemo, useState } from "react";
+import { useRouter } from 'next/navigation';
 import styles from "./index.module.scss";
 import BetMemeModal from "@/components/BetMemeModal";
 import clsx from "clsx";
@@ -13,6 +16,11 @@ interface IGameCardProps {
 
 const GameCard: React.FC<IGameCardProps> = ({ game }) => {
   const [modalView, setModalView] = useState(false);
+  const router = useRouter();
+
+  const navigateToDetailPage = () => {
+    router.push(`/DetailPage?gameId=${game.gameId}&token=${game.token}`);
+  };
 
   const price = getPrice(game.token);
   const pricePercentage = useMemo(() => {
@@ -176,7 +184,7 @@ const GameCard: React.FC<IGameCardProps> = ({ game }) => {
             <Button
               styled={styles.betButton}
               name="Let's Bet !"
-              onClick={() => setModalView(true)}
+              onClick={navigateToDetailPage}
             />
           )}
           {(nowStatus === "expired" ||
