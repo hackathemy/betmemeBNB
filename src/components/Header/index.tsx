@@ -5,6 +5,7 @@ import styles from "./index.module.scss";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
 import ConnectWallet from "./ConnectWallet";
+import Bet1JPEG from "@/assets/icons/main/Logo.jpeg";
 
 const Header = () => {
   const router = usePathname();
@@ -20,7 +21,10 @@ const Header = () => {
             )}
             href="/"
           >
-            🦇 BetMeme
+             <img
+        src={Bet1JPEG.src}
+        style={{ width: '100%', maxWidth: '300px', height: 'auto' }}
+      />
           </Link>
           <Link
             className={clsx(
@@ -29,7 +33,7 @@ const Header = () => {
             )}
             href="/create-bet"
           >
-            Create MEME Bet
+            Create Match
           </Link>
         </div>
         <div className={styles.content}>
@@ -40,7 +44,7 @@ const Header = () => {
             )}
             href="/claim"
           >
-            My Bet
+            My Predictions
           </Link>
           <ConnectWallet />
         </div>

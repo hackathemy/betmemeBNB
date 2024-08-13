@@ -19,7 +19,11 @@ const GameCard: React.FC<IGameCardProps> = ({ game }) => {
   const router = useRouter();
 
   const navigateToDetailPage = () => {
+<<<<<<< Updated upstream
     router.push(`/detail/${game.gameId}`);
+=======
+    router.push(`/GameList/DetailPage`);
+>>>>>>> Stashed changes
   };
 
   const price = getPrice(game.token);
@@ -55,14 +59,6 @@ const GameCard: React.FC<IGameCardProps> = ({ game }) => {
 
   return (
     <ul className={styles.cardContainer} onClick={navigateToDetailPage}>
-      {game.isEnded && (
-        <div
-          className={clsx(
-            styles.backgroundEnd,
-            Number(game.lastPrice) - Number(game.markedPrice) > 0 && styles.up
-          )}
-        />
-      )}
       <div className={styles.cardContent}>
         <div>
           <div className={styles.liveHeader}>
@@ -116,6 +112,11 @@ const GameCard: React.FC<IGameCardProps> = ({ game }) => {
           </div>
         </div>
       </div>
+      <BetMemeModal
+        game={game}
+        modalView={modalView}
+        onCloseModal={() => setModalView(false)}
+      />
     </ul>
   );
 };
