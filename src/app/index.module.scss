@@ -73,3 +73,23 @@
   );
   box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
 }
+
+.tabContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.tab {
+  margin: 0 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+}
+
+.activeTab {
+  color: #00ff00; /* 활성화된 탭의 색상 */
+  border-bottom: 2px solid #00ff00; /* 활성화된 탭의 하단 테두리 */
+}
