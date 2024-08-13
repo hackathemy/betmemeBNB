@@ -19,7 +19,7 @@ const GameCard: React.FC<IGameCardProps> = ({ game }) => {
   const router = useRouter();
 
   const navigateToDetailPage = () => {
-    router.push(`/GameList/DetailPage`);
+    router.push(`/Detail/page?gameId=${game.gameId}&token=${game.token}`);
   };
 
   const price = getPrice(game.token);
@@ -97,8 +97,23 @@ const GameCard: React.FC<IGameCardProps> = ({ game }) => {
               />
             )}
           </div>
-          <div>
-          </div>
+          <div className={styles.btnWrapper}>
+          {nowStatus === "live" && (
+            <Button
+              styled={styles.betButton}
+              name="Let's Bet !"
+              onClick={navigateToDetailPage}
+            />
+          )}
+          {(nowStatus === "expired" ||
+            (game.isEnded && Number(game.lastPrice) > 0)) && (
+            <Button
+              styled={styles.button}
+              name="Finished"
+              disabled={game.isEnded}
+            />
+          )}
+        </div>
         </div>
       </div>
     </ul>
