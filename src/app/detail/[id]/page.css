@@ -1,0 +1,17 @@
+.content-section {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+  }
+  
+  .left-section {
+    flex: 2; 
+    justify-content: center;
+  }
+  
+  .right-section {
+    flex: 1;
+    justify-content: center;
+  }
+  
+  

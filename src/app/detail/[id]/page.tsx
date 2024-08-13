@@ -11,6 +11,7 @@ import CommentsSection from "@/components/DetailPage/CommentsSection";
 import BetDetails from "@/components/DetailPage/BetDetails";
 import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
+import "./page.css";
 
 export default function Detail() {
   const [game, setGame] = useState<IGameProps>();
@@ -64,7 +65,7 @@ export default function Detail() {
   return (
     <Wrapper>
       <>
-      <GameDetail game={game} />
+      {/* <GameDetail game={game} /> */}
       <div className="page-header">
                   <h1>#Ongoing Match</h1>
                   <h2>After AMA, predict changes in BnB token price</h2>

@@ -1,0 +1,72 @@
+.commentsSection {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  
+  .commentsBlock {
+    width: 48%;
+  }
+
+  .commentHead {
+    display: flex;
+    align-items: center;
+  }
+  
+  .PriceUpTitle, .PriceDownTitle {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 12px;
+    border-radius: 15px;
+    padding : 6px 18px;
+    font-weight: bold;
+    margin-right: 20px;
+  }
+
+  .PriceUpTitle{
+    border : 1px solid #00A29A;
+    color : #00A29A;
+  }
+
+  .PriceDownTitle{
+    border: 1px solid #C73535;
+    color : #C73535;
+  }
+
+  .commentCnt{
+    color: #B6B6B6;
+    font-size: 11px;
+  }
+  
+  .commentsList {
+    padding: 10px;
+    border-radius: 8px;
+    color: #B6B6B6;
+  }
+  
+  .comment {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .profilePic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .profileName {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .comment p {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+  }
+  

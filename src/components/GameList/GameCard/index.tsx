@@ -19,11 +19,7 @@ const GameCard: React.FC<IGameCardProps> = ({ game }) => {
   const router = useRouter();
 
   const navigateToDetailPage = () => {
-<<<<<<< Updated upstream
     router.push(`/detail/${game.gameId}`);
-=======
-    router.push(`/GameList/DetailPage`);
->>>>>>> Stashed changes
   };
 
   const price = getPrice(game.token);

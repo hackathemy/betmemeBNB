@@ -16,41 +16,24 @@
       align-items: center;
 
       .live {
-        background: green;
+        border : 1px solid gray;
         padding: 2px 6px;
-        border-radius: 5px;
+        border-radius: px;
         font-size: 12px;
         margin-bottom: 8px;
       }
-
-      .titleAndPrice {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-
-        p {
-          font-size: 16px;
-          color: #666;
-        }
-      }
-
-      .price {
-        text-align: right;
-
-        h2 {
-          font-size: 32px;
-          color: #333;
-        }
-      }
     }
 
-    .priceStats {
+    .price {
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      font-size: 14px;
-      color: #666;
-      margin-top: 10px;
+      justify-content: flex-start;
+      align-items: center;
+
+
+      h2 {
+        font-size: 32px;
+        color: #333;
+      }
     }
 
     .percentages {
@@ -58,23 +41,26 @@
       flex-direction: column;
       justify-content: space-around;
       margin-top: 10px;
-
-      .up, .down {
-        font-size: 16px;
-
-        span {
-          font-weight: bold;
-        }
-      }
-
-      .up {
-        color: #4CAF50;
-      }
-
-      .down {
-        color: #F44336;
-      }
     }
+  }
+
+  .betDetails .percentages .updownGraph .Graphbody {
+    display: flex;
+    height: 20px;
+    width: 100%;
+    background-color: #eee;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .betDetails .percentages .updownGraph .Graphbody .graphBar {
+    height: 100%;
+    transition: width 0.3s ease-in-out;
+  }
+
+  .updown{
+    display: flex;
+    justify-content: space-between;
   }
 
   .prediction {
@@ -89,22 +75,24 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      
-      .buttonUp, .buttonDown {
-        background: #f2f2f2;
-        border: none;
-        padding: 8px 16px;
-        margin: 4px;
-        border-radius: 8px;
-        font-weight: bold;
-      }
+    }
 
-      .input {
-        border: 1px solid #ccc;
-        padding: 8px;
-        text-align: center;
-        width: 60px;
-      }
+    .buttonUp, .buttonDown {
+      display: flex;
+      border: none;
+      margin: 4px;
+    }
+
+    .buttonUp img, .buttonDown img {
+      width: 100%; 
+      height: 100%; 
+    }
+
+    .input {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: center;
+      width: 60px;
     }
 
     .confirmButton {
