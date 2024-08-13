@@ -1,76 +1,95 @@
 .betDetails {
-    background: #ffffff;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 292px; // 컴포넌트의 너비를 설정
-  
-    .currentInfo {
-      text-align: center;
-      padding-bottom: 20px;
-      border-bottom: 1px solid #eee;
-  
-      .header {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 292px;
+
+  .currentInfo {
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    color: black;
+
+    .header {
+      display: flex;
+      align-items: center;
+
+      .live {
+        background: green;
+        padding: 2px 6px;
+        border-radius: 5px;
+        font-size: 12px;
+        margin-bottom: 8px;
+      }
+
+      .titleAndPrice {
         display: flex;
-        flex-direction: column;
-        align-items: center;
-  
-        .live {
-          background: green;
-          color: white;
-          padding: 2px 6px;
-          border-radius: 5px;
-          font-size: 12px;
-          margin-bottom: 8px;
-        }
-  
-        h2 {
-          font-size: 32px;
-          font-weight: bold;
-          margin: 0;
-          color: #333; // 가격 색상
-        }
-  
-        .priceChange {
+        justify-content: space-between;
+        width: 100%;
+
+        p {
           font-size: 16px;
-          margin: 4px 0;
-          color: #4CAF50; // 가격 변동 색상
-        }
-  
-        .token {
-          font-size: 14px;
           color: #666;
         }
       }
-  
-      .percentages {
-        justify-content: space-around;
-        margin-top: 10px;
-  
-        .up, .down {
-          font-size: 16px;
-  
-          span {
-            font-weight: bold;
-          }
-        }
-  
-        .up {
-          color: #4CAF50;
-        }
-  
-        .down {
-          color: #F44336;
+
+      .price {
+        text-align: right;
+
+        h2 {
+          font-size: 32px;
+          color: #333;
         }
       }
     }
-  
-    .prediction {
+
+    .priceStats {
       display: flex;
-      align-items: center;
+      flex-direction: column;
       justify-content: space-between;
-      padding-top: 20px;
-  
+      font-size: 14px;
+      color: #666;
+      margin-top: 10px;
+    }
+
+    .percentages {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      margin-top: 10px;
+
+      .up, .down {
+        font-size: 16px;
+
+        span {
+          font-weight: bold;
+        }
+      }
+
+      .up {
+        color: #4CAF50;
+      }
+
+      .down {
+        color: #F44336;
+      }
+    }
+  }
+
+  .prediction {
+    padding-top: 20px;
+    
+    p {
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      
       .buttonUp, .buttonDown {
         background: #f2f2f2;
         border: none;
@@ -78,24 +97,19 @@
         margin: 4px;
         border-radius: 8px;
         font-weight: bold;
-  
-        &:hover {
-          background: #e2e2e2;
-        }
       }
-  
+
       .input {
         border: 1px solid #ccc;
         padding: 8px;
         text-align: center;
-        width: 60px; // 베팅 금액 입력 필드 너비
-        margin: 0 8px;
+        width: 60px;
       }
     }
-  
+
     .confirmButton {
       margin-top: 12px;
-  
+
       button {
         background: yellow;
         border: none;
@@ -104,11 +118,7 @@
         width: 100%;
         font-weight: bold;
         font-size: 16px;
-  
-        &:hover {
-          background: #ffd700;
-        }
       }
     }
   }
-  
+}

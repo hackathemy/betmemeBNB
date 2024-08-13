@@ -56,6 +56,11 @@ export default function Detail() {
 
     fetchGameList();
   }, []);
+
+  useEffect(() => {
+    console.log('Current game state:', game);
+  }, [game]);
+
   return (
     <Wrapper>
       <>
@@ -65,9 +70,18 @@ export default function Detail() {
                   <h2>After AMA, predict changes in BnB token price</h2>
               </div>
               <div className="content-section">
-                  <GameInfo/>
-                  <CommentsSection/>
-                  <BetDetails/>
+                  <div>
+                    <GameInfo/>
+                    <CommentsSection/>
+                  </div>
+                  <div>
+                    <BetDetails
+                      token={game?.token}
+                      currentPrice={game?.lastPrice ?? '0'}
+                      upAmount={`${game?.upAmount}%`}
+                      downAmount={`${game?.downAmount}%`}
+                    />
+                  </div>
               </div>
       </>
     </Wrapper>

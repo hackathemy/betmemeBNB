@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './index.module.scss';
 
-const CommentsSection = ({gameId}) => {
+const CommentsSection = () => {
   return (
     <div className={styles.commentsSection}>
       <h2>Comments</h2>
