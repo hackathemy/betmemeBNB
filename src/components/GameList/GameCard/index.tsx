@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
 import Button from "@/components/Common/Button";
 import { useMemo, useState } from "react";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 import styles from "./index.module.scss";
 import BetMemeModal from "@/components/BetMemeModal";
 import clsx from "clsx";
@@ -19,7 +19,7 @@ const GameCard: React.FC<IGameCardProps> = ({ game }) => {
   const router = useRouter();
 
   const navigateToDetailPage = () => {
-    router.push(`/Detail/page?gameId=${game.gameId}&token=${game.token}`);
+    router.push(`/detail/${game.gameId}`);
   };
 
   const price = getPrice(game.token);
@@ -98,22 +98,22 @@ const GameCard: React.FC<IGameCardProps> = ({ game }) => {
             )}
           </div>
           <div className={styles.btnWrapper}>
-          {nowStatus === "live" && (
-            <Button
-              styled={styles.betButton}
-              name="Let's Bet !"
-              onClick={navigateToDetailPage}
-            />
-          )}
-          {(nowStatus === "expired" ||
-            (game.isEnded && Number(game.lastPrice) > 0)) && (
-            <Button
-              styled={styles.button}
-              name="Finished"
-              disabled={game.isEnded}
-            />
-          )}
-        </div>
+            {nowStatus === "live" && (
+              <Button
+                styled={styles.betButton}
+                name="Let's Bet !"
+                onClick={navigateToDetailPage}
+              />
+            )}
+            {(nowStatus === "expired" ||
+              (game.isEnded && Number(game.lastPrice) > 0)) && (
+              <Button
+                styled={styles.button}
+                name="Finished"
+                disabled={game.isEnded}
+              />
+            )}
+          </div>
         </div>
       </div>
     </ul>

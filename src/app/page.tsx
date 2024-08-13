@@ -11,9 +11,7 @@ export default function Home() {
 
   return (
     <Wrapper>
-      <div>
-        <GameList />
-      </div>
+      <GameList />
     </Wrapper>
   );
 }
