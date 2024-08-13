@@ -6,6 +6,9 @@ import Wrapper from "@/components/Wrapper";
 import { betMemeContractAddress, betMemeAbi } from "@/constant/betMeme";
 import { ethers } from "ethers";
 import { orderBy } from "lodash";
+import GameInfo from "@/components/DetailPage/GameInfo";
+import CommentsSection from "@/components/DetailPage/CommentsSection";
+import BetDetails from "@/components/DetailPage/BetDetails";
 import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
 
@@ -55,7 +58,18 @@ export default function Detail() {
   }, []);
   return (
     <Wrapper>
+      <>
       <GameDetail game={game} />
+      <div className="page-header">
+                  <h1>#Ongoing Match</h1>
+                  <h2>After AMA, predict changes in BnB token price</h2>
+              </div>
+              <div className="content-section">
+                  <GameInfo/>
+                  <CommentsSection/>
+                  <BetDetails/>
+              </div>
+      </>
     </Wrapper>
   );
 }
