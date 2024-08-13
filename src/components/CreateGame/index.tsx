@@ -75,12 +75,23 @@ const CreateGame = () => {
             required={true}
           />
           <InputBox
-            title="Mother Project"
-            placeholder="Mother Project"
+            title="Project Name"
+            placeholder="Project Name"
             value={motherProject}
             onChange={(val) => setMotherProject(val.target.value)}
             required={true}
           />
+          <div className={styles.selectContainer}>
+          <div className={styles.selectTitle}>Category</div>
+          <Select 
+            className={styles.selectContent}
+            placeholder="Category"
+            size="md"
+            variant="solid"
+            onChange={handleChange}
+          >
+          </Select> 
+          </div>
           <InputBox
             title="Date"
             placeholder="Date"
@@ -93,13 +104,6 @@ const CreateGame = () => {
             placeholder="Description"
             value={description}
             onChange={(val) => setDescription(val.target.value)}
-            required={true}
-          />
-          <InputBox
-            title="Duration"
-            placeholder="Duration"
-            value={duration}
-            onChange={(val) => setDuration(val.target.value)}
             required={true}
           />
           <Button name="Confirm" onClick={createGame} />
