@@ -55,10 +55,12 @@ const GameCard: React.FC<IGameCardProps> = ({ game }) => {
           BNB Price Prediction
         </div>
         <div className={styles.description}>
-          AMA after token price
+        After AMA, 
+        predict changes in token price
         </div>
         <div className={styles.amountDetails}>
-          <div className={styles.amountLabel}>Up: {game.upAmount} $</div>
+          <div className={styles.updownText}>Up:</div>
+          <div className={styles.amountLabel}> {game.upAmount} $</div>
           <button
             className={styles.upButton}
             data-text="UP"
@@ -66,17 +68,15 @@ const GameCard: React.FC<IGameCardProps> = ({ game }) => {
           ></button>
         </div>
         <div className={styles.amountDetails}>
-          <div className={styles.amountLabel}>Down: {game.downAmount} $</div>
+          <div className={styles.updownText}>Down:</div>
+          <div className={styles.amountLabel}> {game.downAmount} $</div>
           <button
             className={styles.downButton}
             data-text="DOWN"
             data-percentage={`${((Number(game.downAmount) / Number(game.prizeAmount)) * 100).toFixed(2)} %`}
           ></button>
         </div>
-        <div>
-          <div>Pool Amount:</div>
-          <div> US$ {game.prizeAmount}</div>
-        </div>
+        <div className={styles.poolAmountText}>Pool Amount: US$ {game.prizeAmount}</div>
       </div>
     </ul>
   );

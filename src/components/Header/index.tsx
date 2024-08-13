@@ -33,7 +33,7 @@ const Header = () => {
             )}
             href="/create-bet"
           >
-            Create Match
+            Create Issues
           </Link>
         </div>
         <div className={styles.content}>
@@ -44,7 +44,7 @@ const Header = () => {
             )}
             href="/claim"
           >
-            My Predictions
+            My Prediction
           </Link>
           <ConnectWallet />
         </div>

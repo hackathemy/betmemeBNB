@@ -9,7 +9,7 @@ import { Option, Select } from "@mui/joy";
 import { coins } from "@/utils/makeCoins";
 
 const CreateGame = () => {
-  const [duration, setDuration] = useState("");
+  const [contact, setContact] = useState("");
   const [motherProject, setMotherProject] = useState("");
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");
@@ -68,15 +68,15 @@ const CreateGame = () => {
       ) : (
         <div className={styles.wrapper}>
           <InputBox
-            title="Event Title"
-            placeholder="Event Title"
+            title="Issue Title"
+            placeholder="Issue Title"
             value={eventTitle}
             onChange={(val) => seteventTitle(val.target.value)}
             required={true}
           />
           <InputBox
-            title="Project Name"
-            placeholder="Project Name"
+            title="Project from"
+            placeholder="Project from"
             value={motherProject}
             onChange={(val) => setMotherProject(val.target.value)}
             required={true}
@@ -104,6 +104,13 @@ const CreateGame = () => {
             placeholder="Description"
             value={description}
             onChange={(val) => setDescription(val.target.value)}
+            required={true}
+          />
+          <InputBox
+            title="Contact"
+            placeholder="Twitter, Discord, Telegram, etc."
+            value={contact}
+            onChange={(val) => setContact(val.target.value)}
             required={true}
           />
           <Button name="Confirm" onClick={createGame} />
