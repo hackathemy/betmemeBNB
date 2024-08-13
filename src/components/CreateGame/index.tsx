@@ -10,7 +10,10 @@ import { coins } from "@/utils/makeCoins";
 
 const CreateGame = () => {
   const [duration, setDuration] = useState("");
-  const [minAmount, setMinAmount] = useState("");
+  const [motherProject, setMotherProject] = useState("");
+  const [description, setDescription] = useState("");
+  const [date, setDate] = useState("");
+  const [eventTitle, seteventTitle] = useState("");
   const [tokenAddress, setTokenAddress] = useState("");
   const [txLoading, setTxLoading] = useState(false);
 
@@ -33,7 +36,7 @@ const CreateGame = () => {
 
       const tx = await contract.createGame(
         duration,
-        ethers.parseUnits(minAmount, "ether"),
+        //ethers.parseUnits(minAmount, "ether"),
         tokenAddress
       );
 
@@ -64,25 +67,34 @@ const CreateGame = () => {
         <LottieContainer />
       ) : (
         <div className={styles.wrapper}>
-          <div className={styles.selectContainer}>
-            <div className={styles.selectTitle}>Coin</div>
-            <Select
-              className={styles.selectContent}
-              placeholder="Choose coin"
-              size="md"
-              variant="solid"
-              onChange={handleChange}
-            >
-              {coins.map((v) => {
-                return (
-                  <Option key={v.address} value={v.address}>
-                    <img className={styles.tokenImg} src={v.image} />
-                    {v.denom}
-                  </Option>
-                );
-              })}
-            </Select>
-          </div>
+          <InputBox
+            title="Event Title"
+            placeholder="Event Title"
+            value={eventTitle}
+            onChange={(val) => seteventTitle(val.target.value)}
+            required={true}
+          />
+          <InputBox
+            title="Mother Project"
+            placeholder="Mother Project"
+            value={motherProject}
+            onChange={(val) => setMotherProject(val.target.value)}
+            required={true}
+          />
+          <InputBox
+            title="Date"
+            placeholder="Date"
+            value={date}
+            onChange={(val) => setDate(val.target.value)}
+            required={true}
+          />
+          <InputBox
+            title="Description"
+            placeholder="Description"
+            value={description}
+            onChange={(val) => setDescription(val.target.value)}
+            required={true}
+          />
           <InputBox
             title="Duration"
             placeholder="Duration"
@@ -90,14 +102,7 @@ const CreateGame = () => {
             onChange={(val) => setDuration(val.target.value)}
             required={true}
           />
-          <InputBox
-            title="Minimum Amount"
-            placeholder="Minimum Amount"
-            value={minAmount}
-            onChange={(val) => setMinAmount(val.target.value)}
-            required={true}
-          />
-          <Button name="Create Game" onClick={createGame} />
+          <Button name="Confirm" onClick={createGame} />
         </div>
       )}
     </div>

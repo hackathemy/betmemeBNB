@@ -17,10 +17,6 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <title>BetMeme</title>
-        <meta
-          name="description"
-          content="Bet with meme coins in the base ecosystem!"
-        />
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body>

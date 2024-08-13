@@ -5,10 +5,6 @@ import styles from "./index.module.scss";
 import clsx from "clsx";
 import { useRouter } from "next/navigation";
 import GameList from "@/components/GameList";
-import Bet1JPEG from "@/assets/icons/main/bet1.jpeg";
-import Bet2JPEG from "@/assets/icons/main/bet2.jpeg";
-import Bet3JPEG from "@/assets/icons/main/bet3.jpeg";
-import Bet4JPEG from "@/assets/icons/main/bet4.jpeg";
 
 export default function Home() {
   const router = useRouter();
@@ -16,18 +12,6 @@ export default function Home() {
   return (
     <Wrapper>
       <div>
-        <div className={styles.container}>
-          <h1>Join the BetMeme powered by Web3</h1>
-          <div className={styles.subTitle}>
-            On this platform, you can bet on the value of meme tokens
-          </div>
-          <button
-            className={clsx(styles.btnHover, styles.color8)}
-            onClick={() => router.push("/#memeList")}
-          >
-            Let's Bet!  
-          </button>
-        </div>
         <GameList />
       </div>
     </Wrapper>

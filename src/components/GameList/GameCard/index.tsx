@@ -19,7 +19,7 @@ const GameCard: React.FC<IGameCardProps> = ({ game }) => {
   const router = useRouter();
 
   const navigateToDetailPage = () => {
-    router.push(`/DetailPage?gameId=${game.gameId}&token=${game.token}`);
+    router.push(`/GameList/DetailPage`);
   };
 
   const price = getPrice(game.token);
@@ -54,7 +54,7 @@ const GameCard: React.FC<IGameCardProps> = ({ game }) => {
   ).toFixed(2);
 
   return (
-    <ul className={styles.cardContainer}>
+    <ul className={styles.cardContainer} onClick={navigateToDetailPage}>
       {game.isEnded && (
         <div
           className={clsx(
@@ -98,110 +98,9 @@ const GameCard: React.FC<IGameCardProps> = ({ game }) => {
             )}
           </div>
           <div>
-            <div className={styles.betInfo}>
-              <img
-                src={getCoinInfo(game.token).image}
-                alt="img"
-                className={styles.tokenImg}
-              />
-              {getCoinInfo(game.token).denom} 🦇 ${game.markedPrice}
-            </div>
-            <div className={styles.lockedContainer}>
-              {game.isEnded && Number(game.lastPrice) > 0 ? (
-                <>Final Price</>
-              ) : (
-                <>Current Price</>
-              )}
-              <div className={styles.betResult}>
-                {game.isEnded && Number(game.lastPrice) > 0 ? (
-                  <>
-                    ${game.lastPrice}
-                    {Number(game.lastPrice) - Number(game.markedPrice) > 0 ? (
-                      <div className={clsx(styles.betPercent, styles.isPlus)}>
-                        Up Win !
-                      </div>
-                    ) : (
-                      <div className={clsx(styles.betPercent)}>Down Win !</div>
-                    )}
-                  </>
-                ) : (
-                  <>
-                    ${price}
-                    <div
-                      className={clsx(
-                        styles.betPercent,
-                        pricePercentage > 0 && styles.isPlus
-                      )}
-                    >
-                      {pricePercentage?.toFixed(2)} %
-                    </div>
-                  </>
-                )}
-              </div>
-              <div className={styles.lockedAmount}>
-                Locked Pool:
-                <div>
-                  {numberWithCommas(lockedAmount)}{" "}
-                  {getCoinInfo(game.token).denom}
-                </div>
-              </div>
-              <div className={styles.lockedAmount}>
-                Bet Up:
-                <div>
-                  {numberWithCommas(Number(game.upAmount))}{" "}
-                  {getCoinInfo(game.token).denom} ( win to{" "}
-                  {numberWithCommas(
-                    Number(game.upAmount) +
-                      (Number(game.downAmount) * 0.7 + Number(game.prizeAmount))
-                  )}{" "}
-                  {getCoinInfo(game.token).denom} )
-                </div>
-              </div>
-              <div className={styles.lockedAmount}>
-                Bet Down:
-                <div>
-                  {numberWithCommas(Number(game.downAmount))}{" "}
-                  {getCoinInfo(game.token).denom} ( win to{" "}
-                  {numberWithCommas(
-                    Number(game.downAmount) +
-                      (Number(game.upAmount) * 0.7 + Number(game.prizeAmount))
-                  )}{" "}
-                  {getCoinInfo(game.token).denom} )
-                </div>
-              </div>
-              <div className={styles.lockedAmount}>
-                Prize Pool:
-                <div>
-                  {numberWithCommas(Number(game.prizeAmount))}{" "}
-                  {getCoinInfo(game.token).denom}
-                </div>
-              </div>
-            </div>
           </div>
         </div>
-        <div className={styles.btnWrapper}>
-          {nowStatus === "live" && (
-            <Button
-              styled={styles.betButton}
-              name="Let's Bet !"
-              onClick={navigateToDetailPage}
-            />
-          )}
-          {(nowStatus === "expired" ||
-            (game.isEnded && Number(game.lastPrice) > 0)) && (
-            <Button
-              styled={styles.button}
-              name="Finished"
-              disabled={game.isEnded}
-            />
-          )}
-        </div>
       </div>
-      <BetMemeModal
-        game={game}
-        modalView={modalView}
-        onCloseModal={() => setModalView(false)}
-      />
     </ul>
   );
 };
